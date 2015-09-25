@@ -1,6 +1,9 @@
 ---
 title: "Peer Assignment 1 for Reproducible Research"
-output: html_document
+output:
+  pdf_document: default
+  html_document:
+    keep_md: yes
 ---
 ##Stefan Kosztolanyi
 
@@ -99,6 +102,10 @@ Lastly I calculate the mean and median of this dataframe
 ```{r mean median}
 meanTDS<-mean(total_days_steps$total_steps)
 medianTDS<-median(total_days_steps$total_steps)
+meanTDS
+
+medianTDS
+
 ```
 
 ## What is the average daily activity pattern?
@@ -164,6 +171,11 @@ I calculate the new median and mean in the data frame with filled in missing val
 ```{r mean and median 2}
 meanTDS2<-mean(total_days_steps2$total_steps)
 medianTDS2<-median(total_days_steps2$total_steps)
+
+meanTDS2
+
+medianTDS2
+
 ```
 
 There is almost no change in the mean and median from the first dataframe and this dataframe. The smll difference in median  is insignificant.
@@ -194,6 +206,7 @@ colnames(weekday_frame)<- c("interval", "weekdays", "average_steps")
 2. I Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data:
 ```{r weekdays plot}
 ggplot(weekday_frame, aes(interval, average_steps)) + geom_line(color="red") + xlab("interval") + ylab("average_steps") + facet_wrap(~weekdays, nrow=2, ncol=1)
+
 ```
 
 From this plot it is evident, that there is difference in average number of steps during weekend and during weekdays. Although it is not obvious just from this graphs, what is the reason behind this difference, as we would need further data to find the reason.
